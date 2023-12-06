@@ -145,13 +145,7 @@ public class CadastroUsuarioInterface extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (camposObrigatoriosPreenchidos()) {
                     cadastrarUsuario();
-
-                    // Após cadastrar o usuário, crie e exiba a tela TelaAlunos
-                    SwingUtilities.invokeLater(() -> {
-                        TelaAlunos telaAlunos = new TelaAlunos();
-                        telaAlunos.createAndShowGUI();
-                    });
-
+                
                     // Feche a janela atual
                     dispose();
                 } else {

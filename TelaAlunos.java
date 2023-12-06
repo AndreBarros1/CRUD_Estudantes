@@ -1,9 +1,9 @@
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 
 public class TelaAlunos {
     public static void main(String[] args) {
@@ -16,7 +16,8 @@ public class TelaAlunos {
 
         String[] columnNames = {"Nome", "Idade", "E-mail", "Endereço", "CEP", "Telefone", "Curso", "Observações", "Ativo"};
         Object[][] data = {};
-        JTable table = new JTable(data, columnNames);
+        DefaultTableModel model = new DefaultTableModel(data, columnNames);
+        JTable table = new JTable(model);
         JScrollPane scrollPane = new JScrollPane(table);
         frame.add(scrollPane, BorderLayout.CENTER);
 
@@ -33,7 +34,7 @@ public class TelaAlunos {
         cadastrarButton.setBorder(border);
         cadastrarButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-                cadastrarButton.addActionListener(new ActionListener() {
+        cadastrarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Cria e exibe a nova tela (CadastroUsuarioInterface)
@@ -48,7 +49,7 @@ public class TelaAlunos {
         editarButton.setBorder(border);
         editarButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-                          editarButton.addActionListener(new ActionListener() {
+        editarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Cria e exibe a nova tela (EditarUsuarioInterface)
@@ -62,6 +63,35 @@ public class TelaAlunos {
         removerButton.setMaximumSize(buttonSize);
         removerButton.setBorder(border);
         removerButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        removerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Obtém o índice da linha selecionada
+                int selectedRow = table.getSelectedRow();
+
+                if (selectedRow != -1) {
+                    // Obtém o nome do aluno selecionado
+                    String alunoSelecionado = (String) model.getValueAt(selectedRow, 0);
+
+                    // Exibe uma mensagem de confirmação
+                    int resposta = JOptionPane.showConfirmDialog(frame,
+                            "Tem certeza que deseja remover o aluno: " + alunoSelecionado + "?",
+                            "Confirmação de Remoção",
+                            JOptionPane.YES_NO_OPTION);
+
+                    // Se o usuário escolher "Sim" (YES_OPTION), remova o aluno
+                    if (resposta == JOptionPane.YES_OPTION) {
+                        // Remova o aluno (substitua isso pela lógica real de remoção)
+                        // Apenas para exemplo, removendo a linha do modelo da tabela
+                        model.removeRow(selectedRow);
+                    }
+                } else {
+                    // Se nenhum aluno estiver selecionado, exiba uma mensagem
+                    JOptionPane.showMessageDialog(frame, "Selecione um aluno para remover.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
 
         panel.add(cadastrarButton);
         panel.add(Box.createRigidArea(new Dimension(0, 5)));
