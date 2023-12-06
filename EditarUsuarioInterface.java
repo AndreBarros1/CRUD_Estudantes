@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Color;
 
-public class CadastroUsuarioInterface extends JFrame {
+public class EditarUsuarioInterface extends JFrame {
 
     private JTextField textFieldNome;
     private JTextField textFieldIdade;
@@ -22,7 +22,7 @@ public class CadastroUsuarioInterface extends JFrame {
     private JComboBox<String> comboBoxAtivo;
 
 
-    public CadastroUsuarioInterface() {
+    public EditarUsuarioInterface() {
         setTitle("Cadastro de Usuário");
         setSize(450, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -137,7 +137,7 @@ public class CadastroUsuarioInterface extends JFrame {
         add(scrollPane);
 
         JButton btnCadastrar = new JButton("Cadastrar");
-        btnCadastrar.setBounds(150, 475, 100, 25);
+        btnCadastrar.setBounds(115, 475, 100, 25);
         add(btnCadastrar);
 
         btnCadastrar.addActionListener(new ActionListener() {
@@ -145,45 +145,36 @@ public class CadastroUsuarioInterface extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (camposObrigatoriosPreenchidos()) {
                     cadastrarUsuario();
-
-                    // Após cadastrar o usuário, crie e exiba a tela TelaAlunos
-                    SwingUtilities.invokeLater(() -> {
-                        TelaAlunos telaAlunos = new TelaAlunos();
-                        telaAlunos.createAndShowGUI();
-                    });
-
-                    // Feche a janela atual
-                    dispose();
                 } else {
-                    JOptionPane.showMessageDialog(CadastroUsuarioInterface.this,
+                    JOptionPane.showMessageDialog(EditarUsuarioInterface.this,
                             "Preencha todos os campos obrigatórios marcados com '*'.",
                             "Campos Obrigatórios",
                             JOptionPane.WARNING_MESSAGE);
                 }
             }
-
         });
 
         JButton btnCancelar = new JButton("Cancelar");
-        btnCancelar.setBounds(255, 475, 100, 25);
+        btnCancelar.setBounds(220, 475, 100, 25);
         add(btnCancelar);
 
         btnCancelar.addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) {
-         int confirmacao = JOptionPane.showConfirmDialog(CadastroUsuarioInterface.this,
+         int confirmacao = JOptionPane.showConfirmDialog(EditarUsuarioInterface.this,
                 "Tem certeza que deseja cancelar?",
                 "Cancelar Cadastro",
                 JOptionPane.YES_NO_OPTION);
 
         if (confirmacao == JOptionPane.YES_OPTION) {
             // Fecha a janela atual
-            CadastroUsuarioInterface.this.dispose();
+            EditarUsuarioInterface.this.dispose();
 
-            
+           
         }
     }
 });
+
 
 
 

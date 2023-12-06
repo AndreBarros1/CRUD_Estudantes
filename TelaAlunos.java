@@ -1,13 +1,16 @@
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 
 public class TelaAlunos {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> createAndShowGUI());
     }
 
-    private static void createAndShowGUI() {
+    public static void createAndShowGUI() {
         JFrame frame = new JFrame("Alunos Cadastrados");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -30,11 +33,29 @@ public class TelaAlunos {
         cadastrarButton.setBorder(border);
         cadastrarButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+                cadastrarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Cria e exibe a nova tela (CadastroUsuarioInterface)
+                CadastroUsuarioInterface cadastroUsuarioInterface = new CadastroUsuarioInterface();
+                cadastroUsuarioInterface.setVisible(true);
+            }
+        });
+
         JButton editarButton = new JButton("Editar");
         editarButton.setPreferredSize(buttonSize);
         editarButton.setMaximumSize(buttonSize);
         editarButton.setBorder(border);
         editarButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+                          editarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Cria e exibe a nova tela (EditarUsuarioInterface)
+                EditarUsuarioInterface editarUsuarioInterface = new EditarUsuarioInterface();
+                editarUsuarioInterface.setVisible(true);
+            }
+        });
 
         JButton removerButton = new JButton("Remover");
         removerButton.setPreferredSize(buttonSize);
