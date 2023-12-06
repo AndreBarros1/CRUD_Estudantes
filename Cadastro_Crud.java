@@ -4,8 +4,7 @@ import java.util.List;
 
 public class Cadastro_Crud {
 
-    // Método para inserir um novo cadastro no banco de dados
-    // Método para inserir um novo cadastro no banco de dados
+   
     public void inserirCadastro(Cadastro cadastro) {
         try (Connection connection = ConexaoFactory.getConexao();
              PreparedStatement preparedStatement = connection.prepareStatement(
@@ -30,7 +29,7 @@ public class Cadastro_Crud {
         }
     }
 
-    // Método para editar um cadastro existente no banco de dados
+    
     public void editarCadastro(int id, Cadastro cadastro) {
         try (Connection connection = ConexaoFactory.getConexao();
              PreparedStatement preparedStatement = connection.prepareStatement(
@@ -56,7 +55,7 @@ public class Cadastro_Crud {
         }
     }
 
-   // Método para excluir um cadastro do banco de dados
+   
    public void excluirCadastro(int id) {
     try (Connection connection = ConexaoFactory.getConexao();
          PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM Cadastro WHERE id=?")) {
@@ -68,7 +67,7 @@ public class Cadastro_Crud {
             e.printStackTrace();
         }
     }
- // Método para listar todos os cadastros no banco de dados
+ 
  public List<Cadastro> listarTodosCadastros() {
     List<Cadastro> cadastros = new ArrayList<>();
 

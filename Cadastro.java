@@ -10,11 +10,11 @@ public class Cadastro {
     private String observacoes;
     private Ativo ativo;
 
-    // Construtor padrão
+    
     public Cadastro() {
     }
 
-    // Construtor que inicializa todos os campos
+    
     public Cadastro(String nome, int idade, String email, int cep, int telefone, String usuario,
                     String senha, Curso curso, String observacoes, Ativo ativo) {
         this.nome = nome;
@@ -37,7 +37,7 @@ public class Cadastro {
         this.nome = nome;
     }
 
-    // Getter e Setter para 'idade'
+    
     public int getIdade() {
         return idade;
     }
@@ -46,7 +46,7 @@ public class Cadastro {
         this.idade = idade;
     }
 
-    // Getter e Setter para 'email'
+   
     public String getEmail() {
         return email;
     }
@@ -55,7 +55,7 @@ public class Cadastro {
         this.email = email;
     }
 
-    // Getter e Setter para 'cep'
+   
     public int getCep() {
         return cep;
     }
@@ -64,7 +64,7 @@ public class Cadastro {
         this.cep = cep;
     }
 
-    // Getter e Setter para 'telefone'
+   
     public int getTelefone() {
         return telefone;
     }
@@ -73,7 +73,7 @@ public class Cadastro {
         this.telefone = telefone;
     }
 
-    // Getter e Setter para 'usuario'
+   
     public String getUsuario() {
         return usuario;
     }
@@ -82,7 +82,7 @@ public class Cadastro {
         this.usuario = usuario;
     }
 
-    // Getter e Setter para 'senha'
+    
     public String getSenha() {
         return senha;
     }
@@ -91,7 +91,7 @@ public class Cadastro {
         this.senha = senha;
     }
 
-    // Getter e Setter para 'curso'
+    
     public Curso getCurso() {
         return curso;
     }
@@ -100,7 +100,7 @@ public class Cadastro {
         this.curso = curso;
     }
 
-    // Getter e Setter para 'observacoes'
+    
     public String getObservacoes() {
         return observacoes;
     }
@@ -109,7 +109,7 @@ public class Cadastro {
         this.observacoes = observacoes;
     }
 
-    // Getter e Setter para 'ativo'
+    
     public Ativo getAtivo() {
         return ativo;
     }
@@ -135,7 +135,7 @@ public class Cadastro {
 
 
 
-    // Métodos toString para facilitar a visualização dos objetos Cadastro
+    
     @Override
     public String toString() {
         return "Cadastro{" +

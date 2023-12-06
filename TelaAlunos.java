@@ -37,7 +37,7 @@ public class TelaAlunos {
         cadastrarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Cria e exibe a nova tela (CadastroUsuarioInterface)
+                
                 CadastroUsuarioInterface cadastroUsuarioInterface = new CadastroUsuarioInterface();
                 cadastroUsuarioInterface.setVisible(true);
             }
@@ -52,7 +52,7 @@ public class TelaAlunos {
         editarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Cria e exibe a nova tela (EditarUsuarioInterface)
+               
                 EditarUsuarioInterface editarUsuarioInterface = new EditarUsuarioInterface();
                 editarUsuarioInterface.setVisible(true);
             }
@@ -67,27 +67,26 @@ public class TelaAlunos {
         removerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Obtém o índice da linha selecionada
+                
                 int selectedRow = table.getSelectedRow();
 
                 if (selectedRow != -1) {
-                    // Obtém o nome do aluno selecionado
+                    
                     String alunoSelecionado = (String) model.getValueAt(selectedRow, 0);
 
-                    // Exibe uma mensagem de confirmação
+                   
                     int resposta = JOptionPane.showConfirmDialog(frame,
                             "Tem certeza que deseja remover o aluno: " + alunoSelecionado + "?",
                             "Confirmação de Remoção",
                             JOptionPane.YES_NO_OPTION);
 
-                    // Se o usuário escolher "Sim" (YES_OPTION), remova o aluno
+                    
                     if (resposta == JOptionPane.YES_OPTION) {
-                        // Remova o aluno (substitua isso pela lógica real de remoção)
-                        // Apenas para exemplo, removendo a linha do modelo da tabela
+                        
                         model.removeRow(selectedRow);
                     }
                 } else {
-                    // Se nenhum aluno estiver selecionado, exiba uma mensagem
+                    
                     JOptionPane.showMessageDialog(frame, "Selecione um aluno para remover.", "Aviso", JOptionPane.WARNING_MESSAGE);
                 }
             }

@@ -28,7 +28,7 @@ public class CadastroUsuarioInterface extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
 
-//Campo Nome 1
+
         JLabel labelNome = new JLabel("Nome*:");
         labelNome.setBounds(20, 20, 80, 25);
         add(labelNome);
@@ -47,7 +47,7 @@ public class CadastroUsuarioInterface extends JFrame {
         add(textFieldIdade);
         ((AbstractDocument) textFieldIdade.getDocument()).setDocumentFilter(new NumericFilter());
 
-//Campo Email 3
+
         JLabel labelEmail = new JLabel("E-mail*:");
         labelEmail.setBounds(20, 80, 80, 25);
         add(labelEmail);
@@ -82,7 +82,6 @@ public class CadastroUsuarioInterface extends JFrame {
         add(textFieldTelefone);
         ((AbstractDocument) textFieldTelefone.getDocument()).setDocumentFilter(new NumericFilter());
 
-// Adicionando o campo de seleção para o curso
         JLabel labelCurso = new JLabel("Curso*: ");
         labelCurso.setBounds(20, 260, 80, 25);
         add(labelCurso);
@@ -93,7 +92,7 @@ public class CadastroUsuarioInterface extends JFrame {
         comboBoxCurso.setBackground(Color.WHITE);
         add(comboBoxCurso);
 
-//Campo Usuario
+
         JLabel labelUsuario = new JLabel("Usuário*:");
         labelUsuario.setBounds(20, 200, 80, 25);
         add(labelUsuario);
@@ -102,7 +101,7 @@ public class CadastroUsuarioInterface extends JFrame {
         textFieldUsuario.setBounds(120, 200, 200, 25);
         add(textFieldUsuario);
 
-//Campo Senha
+
 
         JLabel labelSenha = new JLabel("Senha*:");
         labelSenha.setBounds(20, 230, 80, 25);
@@ -112,12 +111,12 @@ public class CadastroUsuarioInterface extends JFrame {
         passwordFieldSenha.setBounds(120, 230, 200, 25);
         add(passwordFieldSenha);
 
-//Ativo
+
         JLabel labelAtivo = new JLabel("Ativo*: ");
         labelAtivo.setBounds(20, 415, 80, 25);
         add(labelAtivo);
 
-        String[] opcoesAtivo = {"", "Sim", "Não"}; // Substitua com suas opções
+        String[] opcoesAtivo = {"", "Sim", "Não"}; 
         comboBoxAtivo = new JComboBox<>(opcoesAtivo);
         comboBoxAtivo.setBounds(120, 415, 200, 25);
         comboBoxAtivo.setBackground(Color.WHITE);
@@ -125,7 +124,7 @@ public class CadastroUsuarioInterface extends JFrame {
 
 
 
-        // Continue adicionando os outros campos...
+       
 
         JLabel labelObservacoes = new JLabel("Observações:");
         labelObservacoes.setBounds(20, 300, 100, 25);
@@ -146,7 +145,7 @@ public class CadastroUsuarioInterface extends JFrame {
                 if (camposObrigatoriosPreenchidos()) {
                     cadastrarUsuario();
                 
-                    // Feche a janela atual
+                    
                     dispose();
                 } else {
                     JOptionPane.showMessageDialog(CadastroUsuarioInterface.this,
@@ -171,7 +170,7 @@ public class CadastroUsuarioInterface extends JFrame {
                 JOptionPane.YES_NO_OPTION);
 
         if (confirmacao == JOptionPane.YES_OPTION) {
-            // Fecha a janela atual
+           
             CadastroUsuarioInterface.this.dispose();
 
             
@@ -193,7 +192,7 @@ public class CadastroUsuarioInterface extends JFrame {
             !comboBoxCurso.getSelectedItem().toString().isEmpty() &&
             !comboBoxAtivo.getSelectedItem().toString().isEmpty();
 
-    // Adicione verificações para outros campos obrigatórios, se necessário
+    
 }
 
  private void cadastrarUsuario() {
@@ -204,11 +203,11 @@ public class CadastroUsuarioInterface extends JFrame {
         String cep = textFieldCEP.getText();
         String endereco = textFieldEndereco.getText();
         String senha = String.valueOf(passwordFieldSenha.getPassword());
-        // Obtenha os valores dos outros campos
+        
         String observacoes = textAreaObservacoes.getText();
-        // Lógica para cadastrar o usuário no banco de dados ou em algum armazenamento
+        
 
-        // Exemplo: Exibir os dados cadastrados na TextArea
+       
         textAreaObservacoes.append("Nome: " + nome + "\n");
         textAreaObservacoes.append("Idade: " + idade + "\n");
         textAreaObservacoes.append("E-mail: " + email + "\n");
@@ -219,7 +218,7 @@ public class CadastroUsuarioInterface extends JFrame {
         textAreaObservacoes.append("Senha: " + senha + "\n");
         textAreaObservacoes.append("Curso: " + comboBoxCurso.getSelectedItem() + "\n");
         textAreaObservacoes.append("Ativo: " + comboBoxAtivo.getSelectedItem() + "\n");
-        // Adicione as outras informações na TextArea
+        
         textAreaObservacoes.append("Observações: " + observacoes + "\n");
     }
 
@@ -232,7 +231,7 @@ public class CadastroUsuarioInterface extends JFrame {
         });
     }
 
-    // Filtro de documento para aceitar apenas caracteres numéricos
+    
     private class NumericFilter extends DocumentFilter {
         @Override
         public void insertString(FilterBypass fb, int offset, String string, AttributeSet attr)
